@@ -7,6 +7,8 @@ import (
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+
+	"github.com/vrtineu/board/pkg/domain"
 )
 
 func main() {
@@ -30,5 +32,5 @@ func main() {
 		panic("failed to connect database")
 	}
 
-	db.AutoMigrate() // TODO: add models
+	db.AutoMigrate(&domain.Board{})
 }
